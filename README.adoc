@@ -2,7 +2,7 @@
 
 _Tecnológico de Monterrey, Estado de México._
 
-Este proyecto contiene todos los archivos fuente que el profesor irá generando en clase durante el semestre agosto-diciembre del 2016.
+Este proyecto contiene todos los archivos fuente que el profesor irá generando en clase durante el semestre agosto-diciembre del 2017.
 
 Los archivos se pueden consultar directamente en este mismo sitio, o se puede usar `git` para obtener una copia local de éstos. En este último caso se deben seguir los siguiente pasos:
 
