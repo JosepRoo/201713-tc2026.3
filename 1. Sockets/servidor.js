@@ -5,18 +5,27 @@
 'use strict';
 
 const net = require('net');
+const PUERTO = 8080;
+let id = 0;
 
 const server = net.createServer((socket) => {
 
-  console.log('client connected');
+  let socket_id = id;
+  id++;
+  console.log('client connected ' + socket_id);
 
   socket.on('end', () => {
-    console.log('client disconnected');
+    console.log('client disconnected ' + socket_id);
   });
 
   socket.on('data', (data) => {
-    console.log(data.toString().trim());
-    socket.write('Ok\n');
+    let entrada = data.toString().trim();
+    if (entrada === 'bye') {
+      socket.end();
+    } else {
+      console.log(socket_id + ": " + entrada);
+      socket.write('Ok\n');
+    }
   });
 });
 
@@ -24,6 +33,6 @@ server.on('error', (err) => {
   throw err;
 });
 
-server.listen(8124, () => {
-  console.log('server bound');
+server.listen(PUERTO, () => {
+  console.log('server bound on port ' + PUERTO);
 });
